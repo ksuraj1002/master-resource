@@ -5,7 +5,7 @@
 	<groupId>com.master.core</groupId>
 	<artifactId>master-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>master core</name>
+	<name>master-core</name>
 	<description>core folder that contains Constants and Beans</description>
 	<dependencies>
 		<dependency>

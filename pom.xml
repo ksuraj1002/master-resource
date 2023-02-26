@@ -6,7 +6,7 @@
 	<artifactId>master-resource</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>master resource</name>
+	<name>master-resource</name>
 	<description>master resource</description>
 
 	<modules>
