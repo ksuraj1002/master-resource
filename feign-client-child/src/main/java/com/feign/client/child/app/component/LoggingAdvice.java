@@ -24,7 +24,7 @@ public class LoggingAdvice {
 	}
 	
 	@After("myPointcut()")
-	public Object applicationLogger(JoinPoint pjp) throws Throwable {
+	public Object applicationLogger(JoinPoint pjp /* ProceedingJoinPoint */) throws Throwable {
 		ObjectMapper mapper = new ObjectMapper();
 		String methodName = pjp.getSignature().getName();
 		String className = pjp.getTarget().getClass().toString();
