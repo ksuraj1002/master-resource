@@ -15,7 +15,7 @@ public class FeignController {
 
 	@GetMapping("/getFeign/{msg}")
 	public String getResponse(@PathVariable("msg") String msg) {
-		String data=feingService.getRequestedData(msg+"return to the center");
+		String data=feingService.getRequestedData(msg);
 		return data;
 	}
 	
