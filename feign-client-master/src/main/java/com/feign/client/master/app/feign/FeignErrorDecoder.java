@@ -6,7 +6,9 @@ import java.io.InputStream;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.io.CharStreams; 
+import com.feign.client.master.app.exception.DuplicateFoundException;
+import com.google.common.io.CharStreams;
+import com.master.core.dto.ErrorDetail;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;
