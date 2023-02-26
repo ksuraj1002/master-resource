@@ -20,7 +20,7 @@ public class RegistryService {
 	@Autowired
 	PincodeRegistryRepo pincodeRegistryRepo;
 
-	public void savePincodeRegistry() throws FileNotFoundException, IOException, ParseException {
+	public void savePincodeRegistry(com.master.core.model.PincodeRegistry registry) throws FileNotFoundException, IOException, ParseException {
 		List<PincodeRegistry> pincodeRegistry = extractPincodeRegistry();
 		pincodeRegistryRepo.saveAll(pincodeRegistry);
 	}

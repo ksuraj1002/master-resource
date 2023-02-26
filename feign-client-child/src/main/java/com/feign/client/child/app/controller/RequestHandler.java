@@ -10,10 +10,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.feign.client.child.app.exception.DuplicateFoundException;
 import com.feign.client.child.app.service.RegistryService;
+import com.master.core.model.PincodeRegistry;
 
 @RestController
 public class RequestHandler {
@@ -30,8 +32,8 @@ public class RequestHandler {
 	}
 	
 	@PostMapping("/saveRegistry")
-	public ResponseEntity<?> savePincodeRegistry() throws FileNotFoundException, IOException, ParseException {
-		registryService.savePincodeRegistry();
+	public ResponseEntity<?> savePincodeRegistry(@RequestBody PincodeRegistry registry) throws FileNotFoundException, IOException, ParseException {
+		registryService.savePincodeRegistry(registry);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }
