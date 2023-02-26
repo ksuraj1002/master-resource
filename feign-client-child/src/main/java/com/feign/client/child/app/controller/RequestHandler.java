@@ -14,6 +14,6 @@ public class RequestHandler {
 		if(msg.equalsIgnoreCase("msg")) {
 			throw new DuplicateFoundException("yo ta duplicate pryo");
 		}
-		return "return successfbylly by suraj----oji greate hotstart ";
+		return "return successfbylly by suraj----ojik greate hotstart ";
 	}
 }
