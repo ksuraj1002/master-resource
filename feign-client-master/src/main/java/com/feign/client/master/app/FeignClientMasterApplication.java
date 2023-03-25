@@ -11,9 +11,10 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
 @EnableFeignClients
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Employees API", version = "2.0", 
-								description = "Employees Information",contact = @Contact(name="Suraj",email = "sx00@gmail.com",url = "website")),
-					servers = {@Server(url = "serverUrl",description = "prod server")}
+@OpenAPIDefinition(info = @Info(title = "Digital Platform Notification Service", version = "v1.0",
+								description = "This app provides REST APIs for Notification Service APIs",
+								contact = @Contact(name="Bell Canada",email = "sx00@gmail.com",url = "https://krazyshayari.com")),
+					servers = {@Server(url = "https://krazyshayari.com/getdata",description = "Shero-shayaria")}
 		) 
 public class FeignClientMasterApplication {
 
