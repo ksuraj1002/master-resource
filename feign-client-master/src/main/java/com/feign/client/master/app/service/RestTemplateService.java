@@ -19,8 +19,10 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.feign.client.master.app.exception.DuplicateFoundException;
 
 @Service
 public class RestTemplateService {
@@ -49,13 +51,25 @@ public class RestTemplateService {
 			
 			response=this.restTemplate.exchange(builder.buildAndExpand(pathVariable).toUri(), HttpMethod.GET,reqEntity,String.class);
 		}catch(HttpStatusCodeException e) {
-			
+			processErrorResponse(e);
 		}
 		return mapper.readValue(response.getBody(), JsonNode.class);
 	}
 	
 	
 	
+	private void processErrorResponse(HttpStatusCodeException e) throws JsonMappingException, JsonProcessingException {
+		JsonNode node=mapper.readValue(e.getResponseBodyAsString(), JsonNode.class);
+		switch (e.getRawStatusCode()) {
+		case 404:
+			throw new DuplicateFoundException(node.get("erorr").textValue()); 
+		default:
+			break;
+		}
+	}
+
+
+
 	private static final class CustomHttpComponentsClientsHttpRequestFactory extends 
 								HttpComponentsClientHttpRequestFactory{
 		public HttpUriRequest createHttpUriRequest(HttpMethod httpMethod, URI uri) {
