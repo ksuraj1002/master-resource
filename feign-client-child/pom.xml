@@ -46,10 +46,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		  <exclusions>
+		    <exclusion>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-starter-tomcat</artifactId>
+		    </exclusion>
+		    <exclusion>
+		      <groupId>ch.qos.logback</groupId>
+		      <artifactId>logback-classic</artifactId>
+		    </exclusion>
+		  </exclusions>
 		</dependency> 
+		
+		<dependency>
+	      <groupId>javax.servlet</groupId>
+	      <artifactId>javax.servlet-api</artifactId>
+	      <scope>provided</scope>
+       </dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -91,6 +109,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>feign-client-children</finalName>
 	</build>
 
 </project>

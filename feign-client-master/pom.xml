@@ -13,7 +13,7 @@
 	<groupId>com.feign.client.master</groupId>
 	<artifactId>feign-client-master</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>feign-client-master</name>
 	<description>feign client master</description>
 	
@@ -98,6 +98,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>feign-master-child</finalName>
 	</build>
 
 </project>
